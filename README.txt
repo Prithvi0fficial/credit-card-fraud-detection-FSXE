@@ -22,7 +22,7 @@ simultaneously that existing deep learning models fail to address:
 
 ## Results
 
-![Model Comparison](screenshots/06_model_comparison.png)
+![Model Comparison](./screenshots/06_model_comparison.png)
 > FSXE achieves **87.76% Recall** — outperforming all 6 deep learning 
 > models in the IEEE Access 2024 base paper including GRU (79.59%)
 

@@ -30,19 +30,19 @@ simultaneously that existing deep learning models fail to address:
 | Logistic Regression | 97.31% | 5.57% | 91.84% | 10.50% | 96.63% |
 | Random Forest | 99.93% | 78.43% | 81.63% | 80.00% | 96.71% |
 | XGBoost | 99.88% | 60.28% | 86.73% | 71.13% | 97.84% |
-| 🏆 **FSXE (Proposed)** | **99.90%** | **64.66%** | **87.76%** | **74.46%** | **96.84%** |
+| **FSXE (Proposed)** | **99.90%** | **64.66%** | **87.76%** | **74.46%** | **96.84%** |
 
 ### vs Deep Learning Models (Base Paper)
 
 | Model | Recall | Gap vs FSXE |
 |:------|:------:|:-----------:|
-| MLP | 74.15% | -13.61% |
-| CNN | 71.43% | -16.33% |
-| RNN | 72.53% | -15.23% |
-| LSTM | 75.51% | -12.25% |
-| BiLSTM | 76.53% | -11.23% |
+| MLP   | 74.15% | -13.61% |
+| CNN   | 71.43% | -16.33% |
+| RNN   | 72.53% | -15.23% |
+| LSTM  | 75.51% | -12.25% |
+| BiLSTM| 76.53% | -11.23% |
 | GRU *(best DL)* | 79.59% | -8.17% |
-| 🏆 **FSXE (Proposed)** | **87.76%** | **BEST** |
+| **FSXE (Proposed)** | **87.76%** | **BEST** |
 
 FSXE outperforms all 6 deep learning models (MLP, CNN, RNN, LSTM,
 BiLSTM, GRU) reported in the base paper on Recall — the primary

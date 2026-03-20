@@ -1,67 +1,88 @@
-Name: PRITHVI V
-Email: prithvi8289@gmail.com
-Assessment: Round 1 — Coding and Data Analysis Task
-Internship: Python Development — Megaminds IT Services
+# Credit Card Fraud Detection — FSXE Algorithm
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-ALGORITHM
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Name: FSXE — Feature Selected XGBoost Ensemble
-Topic: Credit Card Fraud Detection
+A novel ensemble algorithm combining Logistic Regression, Random Forest,
+and XGBoost with SMOTE oversampling, SelectKBest feature selection,
+and SHAP explainability for credit card fraud detection.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BASE PAPER
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Title: Deep Learning for Credit Card Fraud Detection:
-       A Review of Algorithms, Challenges, and Solutions
-Authors: Ibomoiye Domor Mienye, Nobert Jere
-Journal: IEEE Access, Volume 12, 2024
-DOI: 10.1109/ACCESS.2024.3426955
-Link: https://doi.org/10.1109/ACCESS.2024.3426955
+**Key result: 87.76% Recall — outperforms best deep learning model
+(GRU, 79.59%) from the IEEE Access 2024 base paper.**
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-FILES INSIDE THIS ZIP
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-code/
-  fraud_detection_FSXE.py     — Complete source code
+---
 
-screenshots/
-  01_class_distribution.png
-  02_amount_distribution.png
-  03_correlation_heatmap.png
-  04_smote_effect.png
-  05_feature_selection.png
-  06_model_comparison.png
-  07_roc_curves.png
-  08_confusion_matrix_FSXE.png
-  09_shap_importance.png
-  10_shap_dot_plot.png
-  11_shap_waterfall_fraud.png
+## What is FSXE?
 
-documents/
-  research_paper_FSXE_FINAL.docx   — Full research paper
-  case_study_FSXE.docx             — Case study document
+FSXE (Feature Selected XGBoost Ensemble) solves three problems
+simultaneously that existing deep learning models fail to address:
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-VIDEO PRESENTATION (15 minutes)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Google Drive Link: https://drive.google.com/file/d/1PQvCZmbWitcnCC8skk6N5Hsbt5CuKWwR/view?usp=sharing
+- Class imbalance (0.17% fraud) — solved with SMOTE oversampling
+- Noisy input features — solved with SelectKBest (top 20 of 30 features)
+- Lack of explainability — solved with SHAP values per transaction
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DATASET
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Name: European Credit Card Fraud Detection Dataset
-Source: https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
-Note: Dataset not included in ZIP due to large file size (144MB)
-      Download from Kaggle link above before running the code
+---
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-HOW TO RUN THE CODE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-1. Download creditcard.csv from Kaggle link above
-2. Place it in a folder called data/ next to the code/ folder
-3. Install requirements:
-   pip install pandas numpy scikit-learn xgboost
-   pip install imbalanced-learn shap matplotlib seaborn
-4. Run: python fraud_detection_FSXE.py
-5. Screenshots will be saved to screenshots/ folder
+## Results
+
+| Model | Accuracy | Precision | Recall | F1 | ROC-AUC |
+|---|---|---|---|---|---|
+| Logistic Regression | 97.31% | 5.57% | 91.84% | 10.50% | 96.63% |
+| Random Forest | 99.93% | 78.43% | 81.63% | 80.00% | 96.71% |
+| XGBoost | 99.88% | 60.28% | 86.73% | 71.13% | 97.84% |
+| **FSXE (Proposed)** | **99.90%** | **64.66%** | **87.76%** | **74.46%** | **96.84%** |
+
+FSXE outperforms all 6 deep learning models (MLP, CNN, RNN, LSTM,
+BiLSTM, GRU) reported in the base paper on Recall — the primary
+metric for fraud detection.
+
+---
+
+## Base Paper
+
+> Mienye, I. D., & Jere, N. (2024). Deep learning for credit card
+> fraud detection: A review of algorithms, challenges, and solutions.
+> IEEE Access, 12, 96893–96910.
+> DOI: 10.1109/ACCESS.2024.3426955
+
+---
+
+## Dataset
+
+European Credit Card Fraud Detection Dataset — 284,807 transactions,
+492 fraud cases (0.17%).
+
+Download from Kaggle before running:
+https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
+
+Place as: `data/creditcard.csv`
+
+---
+
+## How to Run
+```bash
+pip install pandas numpy scikit-learn xgboost imbalanced-learn shap matplotlib seaborn
+
+python code/fraud_detection_FSXE.py
+```
+
+Screenshots save automatically to `screenshots/`
+
+---
+
+## Key Visualizations
+
+![Model Comparison](screenshots/06_model_comparison.png)
+![SHAP Feature Importance](screenshots/09_shap_importance.png)
+![Confusion Matrix](screenshots/08_confusion_matrix_FSXE.png)
+
+---
+
+## Tech Stack
+
+Python · XGBoost · Scikit-learn · imbalanced-learn · SHAP ·
+Matplotlib · Pandas · NumPy
+
+---
+
+## Documents
+
+- [Research Paper](documents/research_paper_FSXE_FINAL.pdf)
+- [Case Study](documents/case_study_FSXE.pdf)

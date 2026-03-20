@@ -22,7 +22,8 @@ simultaneously that existing deep learning models fail to address:
 
 ## Results
 
-![Model Comparison](https://github.com/Prithvi0fficial/credit-card-fraud-detection-FSXE/blob/455dde9a41146fb99197f15de1737ac6ef599e63/screenshots/06_model_comparison.png)
+![image alt](https://github.com/Prithvi0fficial/credit-card-fraud-detection-FSXE/blob/455dde9a41146fb99197f15de1737ac6ef599e63/screenshots/06_model_comparison.png)
+
 > FSXE achieves **87.76% Recall** — outperforming all 6 deep learning 
 > models in the IEEE Access 2024 base paper including GRU (79.59%)
 
